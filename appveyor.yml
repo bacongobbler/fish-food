@@ -3,9 +3,10 @@ clone_folder: c:\src
 environment:
   # TODO: use `fish tank` to get this information instead
   FISH_DEFAULT_RIG: c:\ProgramData\Fish\Rigs\github.com\fishworks\fish-food
+  PATH: c:\ProgramData\bin;$(PATH)
 install:
-  - ps: iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/fish/master/scripts/install.ps1'))
   - ps: choco install git
+  - ps: iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/fish/master/scripts/install.ps1'))
   - ps: gofish init
   - ps: rm -r $env:FISH_DEFAULT_RIG
   - ps: cp c:\src $env:FISH_DEFAULT_RIG
